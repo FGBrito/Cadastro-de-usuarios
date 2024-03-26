@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Novo Usuário</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="modal-body">
+        <form class="example-form" [formGroup]="addEditForm" novalidate>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nome:</mat-label>
+                <input matInput
+                       formControlName="name"
+                       (blur)="updateErrorMessage()"
+                       required>
+               <mat-error>{{errorMessage}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Usuário:</mat-label>
+                <input matInput
+                       formControlName="username"
+                       (blur)="updateErrorMessage()"
+                       required>
+               <mat-error>{{errorMessage}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Digite seu e-mail:</mat-label>
+                <input matInput
+                       placeholder="email@example.com"
+                       formControlName="email">
+               <mat-error>{{errorMessage}}</mat-error>
+            </mat-form-field>
+            <mat-label>Endereço:</mat-label>
+            <mat-divider></mat-divider><br>
+            <div formGroupName="address">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Rua:</mat-label>
+                    <input matInput
+                           formControlName="street">
+                   <mat-error>{{errorMessage}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>nº:</mat-label>
+                    <input matInput
+                           formControlName="suite">
+                   <mat-error>{{errorMessage}}</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" mat-raised-button color="primary" cdkFocusInitial (click)="onNoClick()">Cadastrar</button>
+</mat-dialog-actions>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="title-user">
+        <h1>Editar usuário</h1>
+    </div>
+
+    <mat-table [dataSource]="data" class="mat-elevation-z8" *ngIf="data.length">
+        <ng-container matColumnDef="name">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Endereço </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> 
+                {{element.address.street}}, {{element.address.suite}} - {{element.address.city}}
+            </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="company">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Endereço </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> 
+                {{element.company.name}}, {{element.company.catchPhrase}} - {{element.company.bs}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let element"> 
+                <button mat-raised-button color="primary">Salvar</button>
+            </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row matRipple *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
